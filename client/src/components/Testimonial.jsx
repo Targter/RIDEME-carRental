@@ -11,21 +11,21 @@ const Testimonial = () => {
       location: "Himatnagar, Gujarat",
       image: assets.testimonial_image_1,
       testimonial:
-        "I've rented cars from various companies, but the experience with CarRental was exceptional",
+        "I've rented cars from various companies, but the experience with RideMe was exceptional",
     },
     {
       name: "Abdul",
       location: "Morbi, Gujarat",
       image: assets.testimonial_image_2,
       testimonial:
-        "CarRental made my trip so much easier. The car was delivered right to my door, and the customer service was fantastic",
+        "RideMe made my trip so much easier. The car was delivered right to my door, and the customer service was fantastic",
     },
     {
       name: "Sneh Yadav",
       location: "Gandhinagar, Gujarat",
       image: assets.testimonial_image_1,
       testimonial:
-        "I highly recommend CarRental! Their fleet is amazing, and I always feel like I'm getting the best deal with excellent service.",
+        "I highly recommend RideMe! Their fleet is amazing, and I always feel like I'm getting the best deal with excellent service.",
     },
   ];
   return (
