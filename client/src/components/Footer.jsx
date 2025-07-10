@@ -7,19 +7,17 @@ const Footer = () => {
   const footerLinks = {
     quickLinks: [
       { name: "Home", href: "#" },
-      { name: "Browse Cars", href: "#" },
-      { name: "List Your Car", href: "#" },
-      { name: "About Us", href: "#" },
+      { name: "Browse Cars", href: "/cars" },
+      { name: "List Your Car", href: "/cars" },
     ],
     resources: [
-      { name: "Help Center", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Privacy Policy", href: "#" },
-      { name: "Insurance", href: "#" },
+      { name: "Help Center", href: "https://www.abhaybansal.in" },
+      { name: "Terms of Service", href: "https://www.abhaybansal.in" },
+      { name: "Privacy Policy", href: "https://www.abhaybansal.in" },
     ],
     contact: [
-      { name: "CHANDIGARH UNIVERSITY", href: "#" },
-      { name: "Mohali, Punjab", href: "#" },
+      { name: "CHANDIGARH UNIVERSITY", href: "https://www.abhaybansal.in" },
+      { name: "Mohali, Punjab", href: "https://www.abhaybansal.in" },
       { name: "+91 79733446163", href: "tel:+917973446163" },
       {
         name: "bansalabhay00@gmail.com",
