@@ -53,7 +53,7 @@ const Navbar = () => {
         setIsOwner(true);
         toast.success(data.message);
       } else {
-        toast.error(data.message);
+        toast.error(data.message + " or login required");
       }
     } catch (error) {
       toast.error(error.message);

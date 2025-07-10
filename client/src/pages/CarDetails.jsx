@@ -28,7 +28,7 @@ const CarDetails = () => {
         toast.success(data.message);
         navigate("/my-bookings");
       } else {
-        toast.error(data.message + "login required...");
+        toast.error(data.message + " login required...");
       }
     } catch (error) {
       toast.error(error.message);
