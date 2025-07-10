@@ -14,6 +14,10 @@ const Cars = () => {
   const pickupDate = searchParams.get("pickupDate");
   const returnDate = searchParams.get("returnDate");
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { cars, axios } = useAppContext();
 
   const [input, setInput] = useState("");

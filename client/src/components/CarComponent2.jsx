@@ -1,5 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CarComponent2 = ({ car }) => {
   const AnimatedNavLogo = () => {
@@ -41,18 +42,19 @@ const CarComponent2 = ({ car }) => {
               className="max-w-[150px] md:max-w-[200px]"
             />
           </div>
-
-          <div className="flex flex-col gap-4 w-full items-center md:items-start">
-            {car?.features?.map((feature, index) => (
-              <div
-                key={index}
-                className="text-sm md:text-base tracking-widest flex items-center gap-4"
-              >
-                <AnimatedNavLogo />
-                <span>{feature}</span>
-              </div>
-            ))}
-          </div>
+          <Link to="/cars/">
+            <div className="flex flex-col gap-4 w-full items-center md:items-start">
+              {car?.features?.map((feature, index) => (
+                <div
+                  key={index}
+                  className="text-sm md:text-base tracking-widest flex items-center gap-4"
+                >
+                  <AnimatedNavLogo />
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+          </Link>
         </div>
       </div>
     </div>
