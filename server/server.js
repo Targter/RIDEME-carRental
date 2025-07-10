@@ -11,7 +11,7 @@ const app = express();
 
 await connectDB();
 const PORT = process.env.PORT || 5000;
-const FRONTENDURL = "http://localhost:5173" || process.env.FRONTENDURL;
+const FRONTENDURL = process.env.FRONTENDURL || "http://localhost:5173";
 console.log("frontendUrL:", FRONTENDURL);
 //middleware
 app.use(
