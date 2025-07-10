@@ -78,9 +78,12 @@ const Navbar = () => {
       <div className="flex w-[75%] gap-11 pl-11">
         {" "}
         {/* Logo */}
-        <div className="flex items-center">
-          <img src={assets.Logo} alt="Company Logo" className="h-10 w-10 " />
-        </div>
+        <Link to={"/"}>
+          {" "}
+          <div className="flex items-center">
+            <img src={assets.Logo} alt="Company Logo" className="h-10 w-10 " />
+          </div>
+        </Link>
         {/* Desktop Menu Items */}
         <div className="flex items-center gap-8">
           {menuLinks.map((link, index) => (
@@ -122,13 +125,16 @@ const Navbar = () => {
       <div className="flex w-[80%] justify-between">
         {" "}
         {/* Logo */}
-        <div className="flex items-center z-50">
-          <img
-            src={assets.Logo}
-            alt="Company Logo"
-            className="h-10 text-white"
-          />
-        </div>
+        <Link to={"/"}>
+          {" "}
+          <div className="flex items-center z-50">
+            <img
+              src={assets.Logo}
+              alt="Company Logo"
+              className="h-10 text-white"
+            />
+          </div>
+        </Link>
         {/* Mobile Menu Button */}
         <button
           className="z-50  "
