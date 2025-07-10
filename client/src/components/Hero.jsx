@@ -27,6 +27,7 @@ const Hero = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       className=" h-screen flex flex-col items-center justify-end gap-14 text-center containerBox bg-red-900 w-full overflow-y-hidden"
+      style={{ backgroundImage: `url(${homeImagee})` }}
     >
       <div className="flex flex-col md:h-[250px] justify-between pb-[70px] gap-[30px] pl-11 pr-11 ">
         {" "}

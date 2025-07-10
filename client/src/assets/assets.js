@@ -47,7 +47,6 @@ import homeImage from "./image.png";
 import editVideo from "./SECONDVIDEO.mp4";
 import video22 from "./video3.mp4";
 import Logo from "../../public/logo.png";
-
 export const video1 = editVideo;
 export const video2 = video22;
 export const carVideo = car_video;
