@@ -12,6 +12,84 @@ const checkAvailability = async (car, pickupDate, returnDate) => {
   return bookings.length === 0;
 };
 
+export const BookingOrNot = async (req, res) => {
+  try {
+    const { carId, pickupDate, returnDate } = req.body;
+    console.log("BookingOrNot called...bookingcontroller.js");
+    // 1. Validate input
+    if (!carId || !pickupDate || !returnDate) {
+      return res.status(400).json({
+        success: false,
+        message: "Please provide carId, pickupDate, and returnDate",
+      });
+    }
+
+    // 2. Validate dates
+    const pickup = new Date(pickupDate);
+    const returnD = new Date(returnDate);
+
+    if (pickup >= returnD) {
+      return res.status(400).json({
+        success: false,
+        message: "Return date must be after pickup date",
+      });
+    }
+
+    if (pickup < new Date()) {
+      return res.status(400).json({
+        success: false,
+        message: "Pickup date cannot be in the past",
+      });
+    }
+
+    // 3. Check for overlapping bookings
+    const overlappingBookings = await Booking.find({
+      car: carId,
+      $or: [
+        {
+          pickupDate: { $lte: returnD },
+          returnDate: { $gte: pickup },
+        },
+        {
+          pickupDate: { $gte: pickup, $lte: returnD },
+        },
+      ],
+    });
+
+    // 4. Check car exists and is active
+    const carExists = await Car.findById(carId);
+    console.log("carExists:", carExists);
+    if (!carExists || !carExists.isAvaliable) {
+      return res.status(404).json({
+        success: false,
+        message: "Car not found or not available for booking",
+      });
+    }
+
+    // 5. Return response
+    const isAvailable = overlappingBookings.length === 0;
+    console.log("isAvailable:", isAvailable);
+    return res.json({
+      success: true,
+      isAvailable,
+      message: isAvailable
+        ? "Car is available for the selected dates"
+        : "Car is already booked for the selected dates",
+      availableFrom: isAvailable ? null : overlappingBookings[0].returnDate,
+      carDetails: {
+        name: `${carExists.brand} ${carExists.model}`,
+        pricePerDay: carExists.pricePerDay,
+      },
+    });
+  } catch (error) {
+    console.error("Availability check error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Error checking availability",
+      error: error.message,
+    });
+  }
+};
 // api to check availability of cars for the given date and location
 export const checkAvailabilityOfCar = async (req, res) => {
   try {
